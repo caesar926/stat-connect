@@ -61,6 +61,7 @@ upItem.forEach(item => {
   const dueDates = new Date(item.dataset.due);
   const current = new Date() 
   
+  
   const diff = Math.floor((dueDates - current) / 86400000);
 
   item.querySelector('.up-days').textContent = diff +" days left"
