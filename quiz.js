@@ -30,7 +30,7 @@ generateBtn.addEventListener('click', async () => {
   )
 
  const data = await ask.json()
- const questions = data.questions
+ questions = data.questions
 
 
  quizSetup.style.display ='none'
