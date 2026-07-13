@@ -43,7 +43,9 @@ generateBtn.addEventListener('click', async () => {
 
 function renderQuestion () {
   const currentquest = questions[currentIndex];
-  console.log(currentquest.question)
+   console.log(currentquest.question)
+   console.log(questionText)
+
   questionNum.textContent = `${currentIndex + 1}/${questions.length}`
 
   questionText.textContent = currentquest.questions;
