@@ -281,7 +281,6 @@
 
       </div>
     </section>
-
   </div>
 </div>
 
@@ -296,12 +295,94 @@
     </div>
 </div>
 
-<div id="quizzes-page" class="page-section" style="display: none;"></div>
+<!-------------------------------------------QUIZZES-------------------------------------------------->
+
+<div id="quizzes-page" class="page-section" style="display: none;">
+      <select id="course-select">
+        <div>select</div>
+        <option value="STA 121">STA 121</option>
+        <option value="STA 231">STA 231</option>
+        <option value="STA 311">STA 311</option>
+        <option value="GST 111">GST 111</option>
+      </select>
+  
+
+      <select id="count-select">
+        <option>select number of questions</option>
+        <option>25</option>
+        <option>50</option>
+        <option>100</option>
+      </select>
+
+      <div>
+        <button id="generate-btn">GENERATE QUESTIONS</button>
+      </div>    
+  </div>
+
+  <div  id="quiz-active" style="display: none">
+    <div class="question-num" id="question-num">01/25</div>
+    <div class="question" id="question-text">how far can we push this app</div>
+    <div class="options-cont" id="options-cont">
+      <div>
+        <div class="options">A</div> 
+        <div class="option-txt"></div> 
+      </div>
+      <div>
+        <div class="options">B</div> 
+        <div class="option-txt"></div>
+      </div>
+      <div>
+        <div class="options">C</div> 
+       <div class="option-txt"></div>
+      </div>
+      <div>
+        <div class="options">D</div> 
+        <div class="option-txt"></div>
+      </div>
+    </div>
+
+    <button id="next-btn">NEXT</button>
+  </div>
+
+  <div  id="quiz-results" style="display: none">
+  <div id="results-cont">
+    <div class="results">20/25</div>
+
+    <div class="question-num">01/25</div>
+    <div class="question">how far can we push this app</div>
+    <div class="options-cont">
+      <div>
+        <div class="optionss">A</div> 
+        <div class="option-txt"></div> 
+      </div>
+      <div>
+        <div class="options">B</div> 
+        <div class="option-txt"></div>
+      </div>
+      <div><div class="options">C</div> 
+      <div class="option-txt"></div>
+    </div>
+      <div>
+        <div class="options">D</div> 
+        <div class="option-txt"></div>
+      </div>
+
+       <div>
+        <div class="answers">D</div> 
+        <div class="answers-txt"></div>
+      </div>
+    </div>
+
+    <button class="retry-btn">RETRY</button>
+    </div>
+  </div>
+
+</div>
 
 <div id="planner-page" class="page-section" style="display: none;"></div>
 
-<div id="profile-page" class="page-section" style="display: none;">
 
+<div id="profile-page" class="page-section" style="display: none;">
   <div class="app-shell">
 
   <main class="login-main">
@@ -379,5 +460,6 @@
   </nav>
   <script src="school.js"></script>
   <script src="material.js"></script>
+  <script src="quiz.js"></script>
 </body>
 </html>
