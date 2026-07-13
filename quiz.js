@@ -34,8 +34,7 @@ generateBtn.addEventListener('click', async () => {
 
 
  quizSetup.style.display ='none'
- console.log(quizSetup)
- console.log(quizActive)
+  console.log(currentquest.question)
  quizActive.style.display = ''
  generateBtn.textContent = 'GENERATE QUESTION'
   renderQuestion()
