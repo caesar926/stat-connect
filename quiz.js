@@ -34,7 +34,7 @@ generateBtn.addEventListener('click', async () => {
 
 
  quizSetup.style.display ='none'
-  console.log(currentquest.question)
+  
  quizActive.style.display = ''
  generateBtn.textContent = 'GENERATE QUESTION'
   renderQuestion()
@@ -43,7 +43,7 @@ generateBtn.addEventListener('click', async () => {
 
 function renderQuestion () {
   const currentquest = questions[currentIndex];
-  
+  console.log(currentquest.question)
   questionNum.textContent = `${currentIndex + 1}/${questions.length}`
 
   questionText.textContent = currentquest.questions;
