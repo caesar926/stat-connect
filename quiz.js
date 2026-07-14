@@ -58,7 +58,7 @@ function renderQuestion () {
    opt.addEventListener('click', () => {
     userAnswers.push(opt.textContent)
 
-    if(opt.textContent[0] === currentquest.answer){
+    if(opt.textContent === currentquest.answer){
       opt.style.color = "green"
     } else{
       opt.style.color = "red"
