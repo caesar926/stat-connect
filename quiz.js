@@ -87,8 +87,7 @@ nextBtn.addEventListener('click', ()=>{
   questions.forEach((quest, i) => {
     if (questions[i].answer === userAnswers[i]){
       score += 1
-
-      resultsCont.textContent = `You scored ${score} out of ${questions.length}`
     }
+     resultsCont.textContent = `You scored ${score} out of ${questions.length}`
   })
 }
