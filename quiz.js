@@ -11,6 +11,7 @@ const nextBtn = document.getElementById('next-btn')
 const resultsCont = document.getElementById('results-cont')
 const options = document.querySelectorAll('.options')
 
+
 let questions = []
 let currentIndex = 0
 let score = 0
@@ -32,7 +33,6 @@ generateBtn.addEventListener('click', async () => {
  const data = await ask.json()
  questions = data.questions
 
-
  quizSetup.style.display ='none'
   
  quizActive.style.display = ''
@@ -43,19 +43,29 @@ generateBtn.addEventListener('click', async () => {
 
 function renderQuestion () {
   const currentquest = questions[currentIndex];
-   console.log(currentquest.question)
-   console.log(questionText)
 
   questionNum.textContent = `${currentIndex + 1}/${questions.length}`
 
   questionText.textContent = currentquest.question;
-
+  
   optionsCont.innerHTML = '';
 
   currentquest.options.forEach(option => {
    const opt = document.createElement('div');
-   opt.textContent= option
+   opt.textContent = option
    optionsCont.appendChild(opt)
+
+   opt.addEventListener('click', () => {
+    userAnswers.push(opt.textContent)
+
+    if(opt.textContent === currentquest.answer){
+      opt.style.color = "green"
+    } else{
+      opt.style.color = "red"
+    }
+
+    document.querySelectorAll('#option-cont div').forEach(op => op.style.pointerEvents = 'none');
+   });
   });
 
 }
