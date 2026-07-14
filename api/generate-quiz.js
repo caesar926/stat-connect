@@ -1,4 +1,3 @@
-
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
         return res.status(405).json({ error: 'Method not allowed' })
@@ -9,7 +8,7 @@ export default async function handler(req, res) {
 
     const prompt = `Generate ${count} multiple choice statistics questions about ${course}.
     Return ONLY a JSON array, no extra text, no markdown, in this format:
-    [{"question": "...", "options": ["A", "B", "C", "D"], "answer": "A"}]`
+    [{"question": "...", "options": ["A. option text", "B. option text", "C. option text", "D. option text"], "answer": "A. option text"}]`
 
     const geminiRes = await fetch(
         `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
