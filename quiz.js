@@ -85,8 +85,8 @@ nextBtn.addEventListener('click', ()=>{
 })
 
  function showResults() {
+  resultsCont.innerHTML = ``
   questions.forEach((quest, i) => {
-  
     if (questions[i].answer === userAnswers[i]){
       score += 1
     }
