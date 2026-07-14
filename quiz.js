@@ -17,7 +17,7 @@ let currentIndex = 0
 let score = 0
 let userAnswers = []
 
-generateBtn.addEventListener('click', async () => {
+ generateBtn.addEventListener('click', async () => {
   const selectedCourse = courseSelect.value
   const selectedNum = countSelect.value
   generateBtn.textContent ='generating...'
@@ -67,5 +67,28 @@ function renderQuestion () {
     document.querySelectorAll('#options-cont div').forEach(op => op.style.pointerEvents = 'none');
    });
   });
+}
 
+
+/************************NEXT BTN***********************/
+nextBtn.addEventListener('click', ()=>{
+  currentIndex += 1
+
+  if(currentIndex < questions.length){
+    renderQuestion()
+  } else {
+    quizActive.style.display = 'none';
+    quizResults.style.display = '';
+    showResults()
+  }
+})
+
+ function showResults() {
+  questions.forEach((quest, i) => {
+    if (questions[i].answer === userAnswers[i]){
+      score += 1
+
+      resultsCont.textContent = `You scored ${score} out of ${questions.length}`
+    }
+  })
 }
