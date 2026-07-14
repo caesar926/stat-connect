@@ -86,10 +86,11 @@ nextBtn.addEventListener('click', ()=>{
 
  function showResults() {
   questions.forEach((quest, i) => {
+     resultsCont.innerHTML = ``
     if (questions[i].answer === userAnswers[i]){
       score += 1
     }
-
+   
     const card = document.createElement('div')
     card.innerHTML = `
     <p>${questions[i].question}</p>
@@ -98,11 +99,11 @@ nextBtn.addEventListener('click', ()=>{
     </p>
     <p style="color: green">Correct: ${questions[i].answer}</p>
 `
-    resultsCont.innerHTML = ``
     resultsCont.appendChild(card)
   })
-
-  resultsCont.textContent = `You scored ${score} out of ${questions.length}`
+const scoreDiv = document.createElement('div')
+scoreDiv.textContent = `You scored ${score} out of ${questions.length}`
+resultsCont.appendChild(scoreDiv)
 }
 
 /***********************RETRY BTN***********************/
