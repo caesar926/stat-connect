@@ -107,10 +107,7 @@ resultsCont.appendChild(scoreDiv)
 `
     resultsCont.appendChild(card)
   })
-const scoreDiv = document.createElement('div')
-scoreDiv.className = 'results-sub'
-scoreDiv.textContent = `You scored ${score} out of ${questions.length}`
-resultsCont.appendChild(scoreDiv)
+
 }
 
 /***********************RETRY BTN***********************/
