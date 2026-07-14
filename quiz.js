@@ -88,9 +88,9 @@ nextBtn.addEventListener('click', ()=>{
   score = 0;
   resultsCont.innerHTML = ``
   const scoreDiv = document.createElement('div')
-scoreDiv.className = 'results-sub'
-scoreDiv.textContent = `You scored ${score} out of ${questions.length}`
-resultsCont.appendChild(scoreDiv)
+  scoreDiv.className = 'results-sub'
+  scoreDiv.textContent = `You scored ${score} out of ${questions.length}`
+  resultsCont.appendChild(scoreDiv)
   questions.forEach((quest, i) => {   
     if (questions[i].answer === userAnswers[i]){
       score += 1
