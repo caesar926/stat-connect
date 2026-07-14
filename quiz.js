@@ -48,7 +48,7 @@ function renderQuestion () {
 
   questionNum.textContent = `${currentIndex + 1}/${questions.length}`
 
-  questionText.textContent = currentquest.questions;
+  questionText.textContent = currentquest.question;
 
   optionsCont.innerHTML = '';
 
