@@ -9,6 +9,7 @@ const optionsCont = document.getElementById('options-cont')
 const questionNum = document.getElementById('question-num')
 const nextBtn = document.getElementById('next-btn')
 const resultsCont = document.getElementById('results-cont')
+const retryBtn = document.querySelector('.retry-btn')
 const options = document.querySelectorAll('.options')
 
 
@@ -88,6 +89,31 @@ nextBtn.addEventListener('click', ()=>{
     if (questions[i].answer === userAnswers[i]){
       score += 1
     }
-     resultsCont.textContent = `You scored ${score} out of ${questions.length}`
+
+    const card = document.createElement('div')
+    card.innerHTML = `
+    <p>${questions[i].question}</p>
+    <p style="color: ${userAnswers[i] === questions[i].answer ? 'green' : 'red'}">
+        Your answer: ${userAnswers[i]}
+    </p>
+    <p style="color: green">Correct: ${questions[i].answer}</p>
+`
+    resultsCont.innerHTML = ``
+    resultsCont.appendChild(card)
   })
+
+  resultsCont.textContent = `You scored ${score} out of ${questions.length}`
 }
+
+/***********************RETRY BTN***********************/
+retryBtn.addEventListener('click', ()=>{
+ currentIndex = 0
+ score = 0
+ userAnswers = []
+
+ quizResults.style.display = "none"
+ quizSetup.style.display = "none"
+});
+
+
+/*************************results************************/
