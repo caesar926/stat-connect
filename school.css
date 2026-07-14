@@ -1260,34 +1260,6 @@ footer{
   gap: 12px;
 }
 
-.review-card{
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 16px;
-}
-
-.review-card p{
-  margin: 0;
-  font-size: 14px;
-  color: var(--text-dark);
-}
-
-.review-card .review-question{
-  font-weight: 700;
-  margin-bottom: 10px;
-  line-height: 1.4;
-}
-
-.review-card .review-answer{
-  font-size: 13px;
-  font-weight: 600;
-  margin-top: 4px;
-}
-
-.review-card .review-answer.correct{ color: var(--green); }
-.review-card .review-answer.incorrect{ color: #ef4444; }
-
 .retry-btn{
   width: 100%;
   margin-top: 20px;
