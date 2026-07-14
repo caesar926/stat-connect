@@ -92,7 +92,7 @@ nextBtn.addEventListener('click', ()=>{
     }
    
     const card = document.createElement('div')
-    card.innerHTML = ``
+    card.innerHTML = `
     <p>${questions[i].question}</p>
     <p style="color: ${userAnswers[i] === questions[i].answer ? 'green' : 'red'}">
         Your answer: ${userAnswers[i]}
