@@ -85,13 +85,15 @@ nextBtn.addEventListener('click', ()=>{
 })
 
  function showResults() {
+  score = 0;
   resultsCont.innerHTML = ``
-  questions.forEach((quest, i) => {
+  questions.forEach((quest, i) => {   
     if (questions[i].answer === userAnswers[i]){
       score += 1
     }
    
     const card = document.createElement('div')
+    card.className =  `review-card`
     card.innerHTML = `
     <p>${questions[i].question}</p>
     <p style="color: ${userAnswers[i] === questions[i].answer ? 'green' : 'red'}">
@@ -102,6 +104,7 @@ nextBtn.addEventListener('click', ()=>{
     resultsCont.appendChild(card)
   })
 const scoreDiv = document.createElement('div')
+scoreDiv.className = 'results-sub'
 scoreDiv.textContent = `You scored ${score} out of ${questions.length}`
 resultsCont.appendChild(scoreDiv)
 }
@@ -113,8 +116,7 @@ retryBtn.addEventListener('click', ()=>{
  userAnswers = []
 
  quizResults.style.display = "none"
- quizSetup.style.display = "none"
+ quizSetup.style.display = ""
 });
 
 
-/*************************results************************/
