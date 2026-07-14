@@ -299,8 +299,8 @@
 
 <div id="quizzes-page" class="page-section" style="display: none;">
   <div id="quiz-setup">
-      <select id="course-select">
-        <div>select</div>
+      <select id="course-select" class="course-select">
+        <div class="quiz-heading">select</div>
         <option value="STA 121">STA 121</option>
         <option value="STA 231">STA 231</option>
         <option value="STA 311">STA 311</option>
@@ -308,7 +308,7 @@
       </select>
   
 
-      <select id="count-select">
+      <select id="count-select" class="count-select">
         <option>select number of questions</option>
         <option>25</option>
         <option>50</option>
@@ -316,7 +316,7 @@
       </select>
 
       <div>
-        <button id="generate-btn">GENERATE QUESTIONS</button>
+        <button id="generate-btn" class="generate-btn">GENERATE QUESTIONS</button>
       </div>    
   </div>
 
@@ -342,33 +342,38 @@
       </div>
     </div>
 
-    <button id="next-btn">NEXT</button>
+    <button id="next-btn" class="next-btn">NEXT</button>
   </div>
 
   <div  id="quiz-results" style="display: none">
   <div id="results-cont">
-    <div class="results">20/25</div>
+    <div class="results-hero"><div class="results">20/25</div></div>
 
     <div class="question-num">01/25</div>
     <div class="question">how far can we push this app</div>
     <div class="options-cont">
-      <div>
-        <div class="optionss">A</div> 
+
+      <div class="review-card">
+        <div class="options">A</div> 
         <div class="option-txt"></div> 
       </div>
-      <div>
+
+      <div class="review-card">
         <div class="options">B</div> 
         <div class="option-txt"></div>
       </div>
-      <div><div class="options">C</div> 
-      <div class="option-txt"></div>
-    </div>
-      <div>
+
+      <div class="review-card">
+        <div class="options">C</div> 
+        <div class="option-txt"></div>
+      </div>
+
+      <div class="review-card">
         <div class="options">D</div> 
         <div class="option-txt"></div>
       </div>
 
-       <div>
+       <div class="review-card">
         <div class="answers">D</div> 
         <div class="answers-txt"></div>
       </div>
