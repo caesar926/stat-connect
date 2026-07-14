@@ -58,13 +58,13 @@ function renderQuestion () {
    opt.addEventListener('click', () => {
     userAnswers.push(opt.textContent)
 
-    if(opt.textContent === currentquest.answer){
+    if(opt.textContent[0] === currentquest.answer){
       opt.style.color = "green"
     } else{
       opt.style.color = "red"
     }
 
-    document.querySelectorAll('#option-cont div').forEach(op => op.style.pointerEvents = 'none');
+    document.querySelectorAll('#options-cont div').forEach(op => op.style.pointerEvents = 'none');
    });
   });
 
