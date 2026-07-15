@@ -101,10 +101,10 @@ nextBtn.addEventListener('click', ()=>{
     card.className =  `review-card`
     card.innerHTML = `
     <p class="review-question">${questions[i].question}</p>
-    <p class="review-answer" ${userAnswers[i] === questions[i].answer ? 'correct-answer' : 'wrong-answer'}">
+    <p class="review-answer ${userAnswers[i] === questions[i].answer ? 'correct-answer' : 'wrong-answer'}">
         Your answer: ${userAnswers[i]}
     </p>
-    <p style="color: green">Correct: ${questions[i].answer}</p>
+    <p class="correct-answer">Correct: ${questions[i].answer}</p>
 `
     resultsCont.appendChild(card)
   })
