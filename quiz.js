@@ -87,9 +87,7 @@ nextBtn.addEventListener('click', ()=>{
  function showResults() {
   score = 0;
   resultsCont.innerHTML = ``
-  const scoreDiv = document.createElement('div')
-  scoreDiv.className = 'results-sub'
-  scoreDiv.textContent = `You scored ${score} out of ${questions.length}`
+  
   resultsCont.appendChild(scoreDiv)
 
   questions.forEach((quest, i) => {   
@@ -99,7 +97,8 @@ nextBtn.addEventListener('click', ()=>{
    
     const card = document.createElement('div')
     card.className =  `review-card`
-    card.innerHTML = `
+
+   card.innerHTML = `
     <p class="review-question">${questions[i].question}</p>
     <p class="review-answer ${userAnswers[i] === questions[i].answer ? 'correct-answer' : 'wrong-answer'}">
         Your answer: ${userAnswers[i]}
@@ -108,7 +107,9 @@ nextBtn.addEventListener('click', ()=>{
 `
     resultsCont.appendChild(card)
   })
-
+  const scoreDiv = document.createElement('div')
+  scoreDiv.className = 'results-sub'
+  scoreDiv.textContent = `You scored ${score} out of ${questions.length}`
 }
 
 /***********************RETRY BTN***********************/
