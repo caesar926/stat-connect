@@ -85,7 +85,7 @@ nextBtn.addEventListener('click', ()=>{
 })
 
  function showResults() {
-  score = 0;
+  
   resultsCont.innerHTML = ``
   const scoreDiv = document.createElement('div')
   scoreDiv.className = 'results-sub'
