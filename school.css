@@ -1288,7 +1288,13 @@ footer{
 
 }
 
-.review-card .review-question{
+.review-card {
+  font-weight: 700;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.review-question{
   font-weight: 700;
   margin-bottom: 10px;
   line-height: 1.4;
@@ -1304,6 +1310,7 @@ footer{
   color: var(--green);
   font-weight: 600; 
 }
+
 .wrong-answer{ 
   color: #ef4444;
   font-weight: 600;
