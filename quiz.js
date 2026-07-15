@@ -83,36 +83,34 @@ nextBtn.addEventListener('click', ()=>{
     showResults()
   }
 })
+function showResults() {
+    score = 0;
+    resultsCont.innerHTML = "";
 
- function showResults() {
-  score = 0;
-  resultsCont.innerHTML = "";
+    questions.forEach((question, i) => {
+        if (question.answer === userAnswers[i]) {
+            score++;
+        }
+    });
 
-  questions.forEach((quest, i) => {   
-    if (questions[i].answer === userAnswers[i]){
-      score++;
-    }
+    const scoreDiv = document.createElement("div");
+    scoreDiv.className = "results-sub";
+    scoreDiv.textContent = `You scored ${score} out of ${questions.length}`;
+    resultsCont.appendChild(scoreDiv);
 
-    const scoreDiv = document.createElement('div')
-    scoreDiv.className = 'results-sub'
-    scoreDiv.textContent = `You scored ${score} out of ${questions.length}`
-    resultsCont.appendChild(scoreDiv)
-   
-    const card = document.createElement('div')
-    card.className =  `review-card`
-
-   card.innerHTML = `
-    <p class="review-question">${questions[i].question}</p>
-    <p class="review-answer ${userAnswers[i] === questions[i].answer ? 'correct-answer' : 'wrong-answer'}">
-        Your answer: ${userAnswers[i]}
-    </p>
-    <p class="correct-answer">Correct: ${questions[i].answer}</p>
-`
-    resultsCont.appendChild(card)
-  })
-
+    questions.forEach((question, i) => {
+        const card = document.createElement("div");
+        card.className = "review-card";
+        card.innerHTML = `
+            <p class="review-question">${question.question}</p>
+            <p class="review-answer ${userAnswers[i] === question.answer ? "correct-answer" : "wrong-answer"}">
+                Your answer: ${userAnswers[i]}
+            </p>
+            <p class="correct-answer">Correct: ${question.answer}</p>
+        `;
+        resultsCont.appendChild(card);
+    });
 }
-
 /***********************RETRY BTN***********************/
 retryBtn.addEventListener('click', ()=>{
  currentIndex = 0
