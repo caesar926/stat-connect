@@ -87,7 +87,9 @@ nextBtn.addEventListener('click', ()=>{
  function showResults() {
   score = 0;
   resultsCont.innerHTML = ``
-  
+  const scoreDiv = document.createElement('div')
+  scoreDiv.className = 'results-sub'
+  scoreDiv.textContent = `You scored ${score} out of ${questions.length}`
   resultsCont.appendChild(scoreDiv)
 
   questions.forEach((quest, i) => {   
@@ -107,9 +109,7 @@ nextBtn.addEventListener('click', ()=>{
 `
     resultsCont.appendChild(card)
   })
-  const scoreDiv = document.createElement('div')
-  scoreDiv.className = 'results-sub'
-  scoreDiv.textContent = `You scored ${score} out of ${questions.length}`
+
 }
 
 /***********************RETRY BTN***********************/
