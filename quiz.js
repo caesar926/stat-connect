@@ -85,17 +85,18 @@ nextBtn.addEventListener('click', ()=>{
 })
 
  function showResults() {
-  
-  resultsCont.innerHTML = ``
-  const scoreDiv = document.createElement('div')
-  scoreDiv.className = 'results-sub'
-  scoreDiv.textContent = `You scored ${score} out of ${questions.length}`
-  resultsCont.appendChild(scoreDiv)
+  score = 0;
+  resultsCont.innerHTML = "";
 
   questions.forEach((quest, i) => {   
     if (questions[i].answer === userAnswers[i]){
-      score += 1
+      score++;
     }
+
+    const scoreDiv = document.createElement('div')
+    scoreDiv.className = 'results-sub'
+    scoreDiv.textContent = `You scored ${score} out of ${questions.length}`
+    resultsCont.appendChild(scoreDiv)
    
     const card = document.createElement('div')
     card.className =  `review-card`
