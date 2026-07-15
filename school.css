@@ -1263,7 +1263,7 @@ footer{
 }
 
 .results-sub{
-  font-size: 13.5px;
+  font-size: 15px;
   font-weight: 600;
   opacity: .9;
 }
@@ -1300,11 +1300,11 @@ footer{
   margin-top: 4px;
 }
 
-.review-card .review-answer.correct-answer{  
+.correct-answer{  
   color: var(--green);
   font-weight: 600; 
 }
-.review-card .review-answer.wrong-answer{ 
+.wrong-answer{ 
   color: #ef4444;
   font-weight: 600;
 }
