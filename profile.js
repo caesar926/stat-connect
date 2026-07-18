@@ -15,8 +15,7 @@ const createBtn = document.querySelector(".btn-secondary");
 const loginPage = document.querySelector(".login-main");
 const registerPage = document.querySelector(".reg-main");
 
-const userName = localStorage.getItem('uerName')
-document.querySelector('.name').textContent = (userName)
+const userName = localStorage.getItem('userName')
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -74,6 +73,9 @@ loginSubmit.addEventListener('click', (e)=> {
     document.querySelectorAll('.page-section').forEach(p => p.style.display = 'none')
     document.getElementById('home-page').style.display = ''
    
+    const userName = localStorage.getItem('userName')
+document.querySelector('.name').textContent = (userName || user.email.split('@')[0]) + ' 👋'
+
     localStorage.setItem('userName', regFirstname.value)
    
 
@@ -100,7 +102,7 @@ regSubmit.addEventListener('click', (e)=>{
     document.querySelectorAll('.page-section').forEach(p => p.style.display = 'none')
     document.getElementById('home-page').style.display = ''
    
-    document.querySelector('.name').textContent = user.email.split('@')[0] + ' '
+    document.querySelector('.name').textContent = firstNmae + ' '
    
 
     document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'))
