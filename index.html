@@ -356,13 +356,31 @@
   </div>
 </div>
 
-<div id="planner-page" class="page-section" style="display: none;"></div>
+<!-----------------------------PLANNER--------------------------------------->
+<div id="planner-page" class="page-section" style="display: none;">
+
+  <section class="head">
+    <div></div>
+    <h1>Study <span class="span-text">Planner</span></h1>
+    <div></div>
+  </section>
+
+  <div class="page">
+    <div id="planner-form">
+      <input type="text" id="task-input" placeholder="Add a task...">
+      <input type="date" id="task-date">
+      <button id="add-task-btn">ADD TASK</button>
+    </div>
+  
+    <div id="task-list"></div>
+  </div>
+</div>
 
 
-<div id="profile-page" class="page-section" style="display: none;">
-  <div class="app-shell">
+<div id="profile-page" class="page-section profile" style="display: none;">
+ <div class="app-shell">
 
-  <main class="login-main">
+     <main class="login-main">
     <div class="brand">
       <div class="brand-mark">
         <svg width="42" height="42" viewBox="0 0 42 42" fill="none">
@@ -399,14 +417,62 @@
       </div>
 
       <button type="submit" class="btn btn-primary">Login</button>
-      <button type="button" class="btn btn-secondary">Create Account</button>
+      <button type="button" class="btn btn-secondary ">Create Account</button>
       <a class="guest-link">Continue as Guest</a>
     </form>
 
     <p class="login-footer">Access notes, videos, quizzes, and<br />study plans all in one place.</p>
   </main>
-</div>
 
+  <main class="reg-main">
+    
+    <div class="top">
+      <span>Have an Account
+        <a class="login-Btn">Login</a>
+      </span>
+
+      <header>Sign Up</header>
+    </div>
+
+    <div class="reg-name">
+      <div class="input-box names">
+        <input type="text" class="input-field" id="reg-firstname" placeholder="Firstname">
+        <i class="bx bx-user"></i>
+     </div>
+
+      <div class="input-box names">
+        <input type="text" class="input-field" id="reg-lastname"  placeholder="lastname">
+        <i class="bx bx-user"></i>
+      </div>
+    </div>
+
+      <div class="input-box">
+        <input type="text" class="input-field"  id="reg-email"  placeholder="email">
+        <i class="bx bx-envelope"></i>
+      </div>
+
+      <div class="input-box">
+        <input type="password" class="input-field" id="reg-password" placeholder="password">
+        <i class="bx bx-lock-alt"></i>
+      </div>
+
+      <div class="input-box">
+        <input type="submit" class="submit btn" value="Register">  
+      </div>
+
+      <div class="register-checkbox">
+        <div class="checkbox-cont">
+          <input type="checkbox" id="register-check">
+          <label for="register-check">Remember me</label>
+        </div>    
+    </div>
+  
+  
+</main>
+
+ 
+  
+ </div>
 </div>
 
 <nav class="bottom-nav">
@@ -438,5 +504,8 @@
   <script src="school.js"></script>
   <script src="material.js"></script>
   <script src="quiz.js"></script>
+  <script src="plan.js"></script>
+  <script type="module" src="profile.js"></script>
+  <script type="module" src="firebase.js"></script>
 </body>
 </html>
