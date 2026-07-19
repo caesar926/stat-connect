@@ -1,7 +1,7 @@
 const tags = document.querySelectorAll('.course-tags');
 const activeCourse = document.querySelectorAll('.course-cont');
 const search = document.querySelector('.mat-search');
-const allPage = document.querySelectorAll('.page-section');
+const allPages = document.querySelectorAll('.page-section');
 const backs = document.querySelectorAll('.back');
 
 
