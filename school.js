@@ -1,6 +1,9 @@
+import {auth, signOut} from './firebase.js'
+
 const greet = document.querySelector('.greet');
 const upItem = document.querySelectorAll('.upcoming-item');
 const courseCard = document.querySelectorAll('.course-card')
+const homeCards = document.querySelectorAll('.home-cards')
 const navBtn = document.querySelectorAll('.nav-btn');
 const searchInput = document.querySelector('.search');
 const bellBtn = document.querySelector('[aria-label="Notifications"]');
@@ -8,7 +11,64 @@ const nofic = document.querySelector('.absolute');
 const toggle = document.querySelectorAll('.toggle-btn')
 const allPages = document.querySelectorAll('.page-section')
 
- 
+const sidebar = document.getElementById('sidebar')
+const sidebarOverlay = document.getElementById('sidebar-overlay')
+const closeSidebar = document.getElementById('close-sidebar')
+const menuBtn = document.querySelector('[aria-label="Menu"]')
+const logoutBtn = document.getElementById('logout-btn')
+const sideNavs = document.querySelectorAll('.side-nav') 
+const see = document.querySelector('.see-plan')
+/****************SIDE BAR************************/
+function navigateTo(pageId) {
+    allPages.forEach(page => page.style.display = 'none')
+    document.getElementById(pageId).style.display = ''
+    navBtn.forEach(btn => {
+        btn.classList.remove('active')
+        if(btn.dataset.page === pageId) btn.classList.add('active')
+    })
+    saveToLocalstorage('activeNav', pageId)
+}
+
+sideNavs.forEach(sideNav => {
+  sideNav.addEventListener('click', ()=>{
+    navigateTo(sideNav.dataset.page)
+    sidebar.classList.remove('open');
+  sidebarOverlay.classList.remove('open');
+  })
+})
+
+menuBtn.addEventListener('click', ()=>{
+  sidebar.classList.add('open');
+  sidebarOverlay.classList.add('open');
+})
+
+closeSidebar.addEventListener('click', ()=>{
+  sidebar.classList.remove('open');
+  sidebarOverlay.classList.remove('open');
+});
+
+logoutBtn.addEventListener('click', ()=>{
+  signOut(auth).then((userCredential) => {
+
+    allPages.forEach(page => page.style.display = 'none')
+    const profile = document.querySelector('.profile')
+    profile.style.display = '';
+    sidebarOverlay.classList.remove('open');
+     sidebar.classList.remove('open');
+
+
+     navBtn.forEach(btn =>{ btn.addEventListener('click', () => {
+    navBtn.forEach(btns => btns.classList.remove('active'));
+    btn.classList.add('active');
+  
+    saveToLocalstorage('activeNav', btn.querySelector('span').textContent)
+    
+  });
+});
+  })
+});
+
+/****************LOCAL STORAGE*************************/
  function saveToLocalstorage(key, value) {
      localStorage.setItem(key, value)
     }
@@ -16,7 +76,6 @@ const allPages = document.querySelectorAll('.page-section')
  function loadFromLocalStorage(key) {
  return localStorage.getItem(key)
 }
-
 
 if (loadFromLocalStorage('notificationDismissed') === 'true'){
   nofic.style.display = 'none'
@@ -56,6 +115,17 @@ else {
   greet.textContent = "Good evening,"
 }
 
+see.addEventListener('click', ()=>{
+  navigateTo('planner-page')
+})
+
+
+/***********HOME CARDS************************** */
+homeCards.forEach(homeCard => {
+  homeCard.addEventListener('click', ()=> {
+    navigateTo('materials-page')
+  })
+})
 /*********************DAYS LEFT*************************** */
 upItem.forEach(item => {
   const dueDates = new Date(item.dataset.due);
