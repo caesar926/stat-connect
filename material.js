@@ -47,7 +47,7 @@ const courseData = {
 
 backs.forEach(back => {
   back.addEventListener('click', ()=>{
-    allPage.forEach(page => page.style.display='none');
+    allPages.forEach(page => page.style.display='none');
     const activepg = document.getElementById("materials-page");
     activepg.style.display = '';
 
