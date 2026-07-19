@@ -7,6 +7,25 @@
 <link href="school.css" rel="stylesheet">
 </head>
 <body>
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+        <h2>STAT<span class="span-text">CONNECT</span></h2>
+        <button id="close-sidebar">✕</button>
+    </div>
+    <div class="sidebar-content">
+        <div class="sidebar-user">
+            <div id="sidebar-name">Hello, User</div>
+        </div>
+        <div class="sidebar-links">
+            <div class="side-nav" data-page="home-page"> <span> Home</span></div>
+            <div class="side-nav" data-page="materials-page"> <span>Materials</span> </div>
+            <div class="side-nav" data-page="quizzes-page"> <span> Quizzes</span></div>
+            <div class="side-nav" data-page="planner-page"> <span>Planner</span></div>
+        </div>
+        <button id="logout-btn">Logout</button>
+    </div>
+</div>
+<div id="sidebar-overlay" class="sidebar-overlay"></div>
 <div id="home-page" class="page-section">
   <section class="header">
     <div class="nav-row">
@@ -60,7 +79,9 @@
     <section class="sec3">
       <div class="section-header">
         <h2>Quick Access</h2>
-        <a class="see-all">See all &#8250;</a>
+     
+          <a class="see-all">See all &#8250;</a>
+        
       </div>
 
       <div class="sec3cards">
@@ -104,25 +125,25 @@
     <section class="sec4">
       <div class="section-header">
         <h2>My Courses</h2>
-        <a class="see-all">See all &#8250;</a>
+        
       </div>
 
       <div class="courses-row">
-        <div class="course-card">
+        <div class="course-card home-cards">
           <div class="course-top">
             <div class="course-icon blue">
               <svg viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="20" x2="4" y2="12"/><line x1="10" y1="20" x2="10" y2="8"/><line x1="16" y1="20" x2="16" y2="4"/></svg>
             </div>
             <div class="more-dots">&#8226;&#8226;&#8226;</div>
           </div>
-          <div class="course-tag blue">STA 121</div>
+          <div class="course-tag blue" >STA 121</div>
           <div class="course-title">Introduction to Statistics I</div>
           <div class="course-meta">Last accessed: Today, 8:30 AM</div>
           <div class="progress-track"><div class="progress-fill blue" style="width:60%"></div></div>
           <div class="progress-label">60%</div>
         </div>
 
-        <div class="course-card">
+        <div class="course-card home-cards">
           <div class="course-top">
             <div class="course-icon purple">
               <svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c0-6 4-9 4-14"/><path d="M20 20c0-6-4-9-4-14"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
@@ -136,7 +157,7 @@
           <div class="progress-label">45%</div>
         </div>
 
-        <div class="course-card">
+        <div class="course-card home-cards">
           <div class="course-top">
             <div class="course-icon green">
               <svg viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10H12z"/><path d="M12 2a10 10 0 0 1 10 10"/></svg>
@@ -155,7 +176,7 @@
     <section class="sec5">
       <div class="section-header">
         <h2>Upcoming</h2>
-        <a class="see-all">See all &#8250;</a>
+        <a class="see-plan see-all" >See all &#8250;</a>
       </div>
 
       <div class="upcoming-list">
@@ -376,7 +397,7 @@
   </div>
 </div>
 
-
+<!------------------PROFILE SECTION------------------->
 <div id="profile-page" class="page-section profile" style="display: none;">
  <div class="app-shell">
 
@@ -398,6 +419,7 @@
 
     <form>
       <div class="field">
+
         <label for="email">Email Address</label>
         <input type="email" id="email" placeholder="Enter your email" autocomplete="email" />
       </div>
@@ -417,19 +439,19 @@
       </div>
 
       <button type="submit" class="btn btn-primary">Login</button>
+      
+      <div id="login-error" class="error-msg"></div>
       <button type="button" class="btn btn-secondary ">Create Account</button>
       <a class="guest-link">Continue as Guest</a>
+
     </form>
 
     <p class="login-footer">Access notes, videos, quizzes, and<br />study plans all in one place.</p>
   </main>
 
-  <main class="reg-main">
-    
+  <!-----------------REG-------------------->
+  <main class="reg-main">  
     <div class="top">
-      <span>Have an Account
-        <a class="login-Btn">Login</a>
-      </span>
 
       <header>Sign Up</header>
     </div>
@@ -450,10 +472,15 @@
         <input type="text" class="input-field"  id="reg-email"  placeholder="email">
         <i class="bx bx-envelope"></i>
       </div>
-
-      <div class="input-box">
-        <input type="password" class="input-field" id="reg-password" placeholder="password">
-        <i class="bx bx-lock-alt"></i>
+      
+      <div class="field">
+        <div class="input-wrap">
+          <input type="password" id="reg-password" placeholder="Enter your password" autocomplete="current-password" />
+          <button type="button" class="toggle-visibility" aria-label="Show password">
+            <svg class="eye-icon" id="eyes-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M1 10C1 10 4 4 10 4C16 4 19 10 19 10C19 10 16 16 10 16C4 16 1 10 1 10Z" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="10" r="2.5" stroke="currentColor" stroke-width="1.5"/></svg>
+          </button>
+          <div id="reg-error" class="error-msg"></div>
+        </div>
       </div>
 
       <div class="input-box">
@@ -464,14 +491,13 @@
         <div class="checkbox-cont">
           <input type="checkbox" id="register-check">
           <label for="register-check">Remember me</label>
-        </div>    
+        </div>  
+         <span>Already Have an Account
+        <a class="login-Btn">Login</a>
+      </span>  
     </div>
-  
-  
-</main>
 
- 
-  
+  </main>
  </div>
 </div>
 
@@ -481,7 +507,7 @@
       <span>Home</span>
     </a>
 
-    <a class="nav-btn" data-page="materials-page">
+    <a class="nav-btn"  data-page="materials-page">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
       <span>Materials</span>
     </a>
@@ -501,7 +527,7 @@
       <span>Profile</span>
     </a>
   </nav>
-  <script src="school.js"></script>
+  <script type="module" src="school.js"></script>
   <script src="material.js"></script>
   <script src="quiz.js"></script>
   <script src="plan.js"></script>
