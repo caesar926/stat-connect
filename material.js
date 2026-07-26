@@ -6,18 +6,8 @@ const backs = document.querySelectorAll('.back');
 
 
 const courseData = {
-    'STA 121': {
-        title: 'Introduction to Statistics I',
-        topics: [
-          { name: 'Introduction to Data', pdf:'pdfs/STA121-intro.pdf'},
-          { name: 'Measures of Central Tendency', pdf:null},
-          { name: 'Frequency Distribution', pdf:null}
-
-        ]
-    },
-
-    'STA 231': {
-        title: 'Probability Theory I',
+    'SDA 221': {
+        title: 'Introduction to  R  Programming',
         topics: [
           {name:'Basic Probability', pdf:null},
           {name:'Random Variables', pdf:null},
@@ -25,8 +15,17 @@ const courseData = {
         ]
     },
 
-    'STA 311' : {
-      title:'Statistical Inference',
+    'COS 221': {
+        title: 'Computer programming',
+        topics: [
+          {name:'Basic Probability', pdf:null},
+          {name:'Random Variables', pdf:null},
+          {name:'Normal Distrubtion', pdf:null}    
+        ]
+    },
+
+    'MTH 221' : {
+      title:'Introduction to numerical analysis',
       topics:[
           {name:'Estimation Theory',  pdf:null},
           {name: 'Hypothesis testing', pdf:null},
@@ -34,8 +33,62 @@ const courseData = {
       ]
     },
 
-    'GST 111' :{
-      title: 'Introduction to English',
+    'STA 223' :{
+      title: 'Statistics for physical science and Engineering ',
+      topics:[
+        {name:'Parts of Speech',  pdf:null},
+          {name: 'sentence Structure', pdf:null},
+          {name:'comprehension', pdf:null}  
+      ]
+    },
+
+    'NS-STA 221' :{
+      title: 'Introduction to economic modelling and econometrics',
+      topics:[
+        {name:'Parts of Speech',  pdf:null},
+          {name: 'sentence Structure', pdf:null},
+          {name:'comprehension', pdf:null}  
+      ]
+    },
+
+    'NS-STA 222' :{
+      title: 'Introduction to data mining techniques',
+      topics:[
+        {name:'Parts of Speech',  pdf:null},
+          {name: 'sentence Structure', pdf:null},
+          {name:'comprehension', pdf:null}  
+      ]
+    },
+
+    'NS-STA 223' :{
+      title: 'Classical and financial time series',
+      topics:[
+        {name:'Parts of Speech',  pdf:null},
+          {name: 'sentence Structure', pdf:null},
+          {name:'comprehension', pdf:null}  
+      ]
+    },
+
+    'NS-STA 224' :{
+      title: 'Introduction to spatial statistics ',
+      topics:[
+        {name:'Parts of Speech',  pdf:null},
+          {name: 'sentence Structure', pdf:null},
+          {name:'comprehension', pdf:null}  
+      ]
+    },
+
+    'CSC 123' :{
+      title: 'Introduction to database Management',
+      topics:[
+        {name:'Parts of Speech',  pdf:null},
+          {name: 'sentence Structure', pdf:null},
+          {name:'comprehension', pdf:null}  
+      ]
+    },
+
+    'NS-DTS 224' :{
+      title: 'Introduction to structured query Language',
       topics:[
         {name:'Parts of Speech',  pdf:null},
           {name: 'sentence Structure', pdf:null},
@@ -43,6 +96,8 @@ const courseData = {
       ]
     }
 }
+
+
 
 
 backs.forEach(back => {
@@ -88,7 +143,7 @@ document.getElementById('topics-page').style.display = ''
 });
 
 
-/************************TAGS***********************/
+/***********************TAGS********************/
 tags.forEach(tag => {
   tag.addEventListener('click', () => {
     tags.forEach(tag => tag.classList.remove('actives'));
@@ -124,27 +179,3 @@ search.addEventListener('input', () => {
     }
   })
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*for (const [name, course] of Object.entries(courseData))    
-  {
-  console.log(name);          // STA 121
-  console.log(course.title);  // Introduction to Statistics I
-  console.log(course.topics); // Array of topics
-
-  course.topics.forEach(topic => {
-  console.log(topic);
-  });
-}*/
