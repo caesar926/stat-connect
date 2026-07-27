@@ -1431,6 +1431,7 @@ footer{
   border-radius: 16px;
   padding: 14px 16px;
   transition: background .15s ease, box-shadow .15s ease;
+   border-radius: 12px;
 }
 
 .task-item:hover{
@@ -1440,10 +1441,13 @@ footer{
 /* checkbox styled as a custom circle */
 .task-check{
   flex-shrink: 0;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  border: 2px solid var(--gray-200);
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #e3ecff;
+  border: none;
+ 
+  
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1452,18 +1456,22 @@ footer{
 }
 
 .task-check svg{
-  width: 13px;
-  height: 13px;
-  opacity: 0;
+  stroke: var(--blue-dark);
+  opacity: 1;
+  width: 20px;
+  height: 20px;
+
+  
   transition: opacity .15s ease;
 }
 
 .task-item.done .task-check{
-  background: var(--green);
+  background: #dff5e9;
   border-color: var(--green);
 }
 
 .task-item.done .task-check svg{
+   stroke: var(--green);
   opacity: 1;
 }
 
