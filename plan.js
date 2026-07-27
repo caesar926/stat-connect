@@ -1,80 +1,3 @@
-/*const addTaskBtn = document.getElementById('add-task-btn')
-const taskInput = document.getElementById('task-input')
-const taskDate = document.getElementById('task-date')
-const taskList = document.getElementById('task-list')
-
-let tasks = []
-
-const saved = localStorage.getItem('tasks');
-if(saved) tasks = JSON.parse(saved)
-
-addTaskBtn.addEventListener('click', ()=>{
- const inputValue = taskInput.value
- const dateValue = taskDate.value 
-
-  if (inputValue && dateValue) {
-    const task = {
-      id: Date.now().toString(),
-      name: inputValue,
-      date: dateValue,
-      done: false
-    }
-
-  tasks.push(task)
-  console.log(tasks);
-
-  localStorage.setItem('tasks', JSON.stringify(tasks))
-
-  
-  taskInput.value="";
-  renderTask()
-  }
-});
-
-function renderTask() {
-  taskList.innerHTML = '';
-  tasks.forEach(task =>{
-    const card = document.createElement('div')
-    card.innerHTML = `
-     <div class="task-card">
-    <div class="task-check" data-id="${task.id}">✓</div>
-    <div class="task-info">
-        <div class="task-text">${task.name}</div>
-        <div class="task-title">${task.date}</div>
-    </div>
-    <div class="task-delete" data-id="${task.id}">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
-    </div>
-</div>
-    `
-
-    taskList.appendChild(card);
-  })
-}
-
-
- taskList.addEventListener('click', (e) => {
-    const deleteBtn = e.target.closest('task-delete')
-    const checkBtn = e.target.closest('.task-check')
-   
-    if (deleteBtn) {
-        const id = Number(deleteBtn.dataset.id)
-        tasks = tasks.filter(task => task.id !== id)
-        saveToLocalstorage('tasks', JSON.stringify(tasks))
-        renderTask()
-    }
-   
-    if (checkBtn) {
-        const id = Number(checkBtn.dataset.id)
-        tasks = tasks.map(task =>
-            task.id === id ? {...task, done: !task.done} : task
-        )
-        saveToLocalstorage('tasks', JSON.stringify(tasks))
-        renderTask()
-    }
-})*/
-
-
 const taskInput = document.getElementById('task-input')
 const taskDate = document.getElementById('task-date')
 const addTaskBtn = document.getElementById('add-task-btn')
@@ -112,6 +35,40 @@ function emptyStateIcon() {
 }
 
 
+function calcDaysLeft(dateStr) {
+  const due = new Date(dateStr + 'T23:59:59')
+  const now = new Date()
+  return Math.floor((due - now) / 86400000)
+}
+
+function renderHomeUpcoming() {
+  const homeList = document.getElementById('home-upcoming-list')
+  if (!homeList) return
+
+  const upcoming = tasks
+    .filter(t => t.date && !t.done && calcDaysLeft(t.date) > 0)
+    .sort((a, b) => Number(b.id) - Number(a.id))
+    .slice(0, 3)
+
+  homeList.innerHTML = upcoming.length ? '' :
+    `<div class="planner-empty-sub" style="padding:16px;">No upcoming plans yet.</div>`
+
+  upcoming.forEach(task => {
+    const diff = calcDaysLeft(task.date)
+    const item = document.createElement('div')
+    item.className = 'upcoming-item'
+    item.innerHTML = `
+      <div class="up-icon blue">${emptyStateIcon()}</div>
+      <div class="up-text">
+        <div class="up-title">${task.text}</div>
+        <div class="up-sub">Due: ${formatGroupLabel(task.date)}</div>
+      </div>
+      <div class="up-days blue">${diff} day${diff === 1 ? '' : 's'} left</div>
+    `
+    homeList.appendChild(item)
+  })
+}
+
 function renderTasks() {
   taskList.innerHTML = ''
 
@@ -125,6 +82,7 @@ function renderTasks() {
     `
     return
   }
+
 
   // sort by date ascending
   const sorted = [...tasks].sort((a, b) => new Date(a.date) - new Date(b.date))
@@ -163,12 +121,14 @@ function renderTasks() {
         task.done = !task.done
         saveTasks()
         renderTasks()
+        renderHomeUpcoming()
       })
 
       item.querySelector('.task-delete').addEventListener('click', () => {
         tasks = tasks.filter(t => t.id !== task.id)
         saveTasks()
         renderTasks()
+        renderHomeUpcoming()
       })
 
       groupDiv.appendChild(item)
@@ -196,9 +156,10 @@ addTaskBtn.addEventListener('click', () => {
 
   saveTasks()
   renderTasks()
-
+ renderHomeUpcoming()
   taskInput.value = ''
   taskDate.value = ''
 })
 
 renderTasks()
+renderHomeUpcoming()
