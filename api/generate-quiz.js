@@ -4,11 +4,16 @@ export default async function handler(req, res) {
     }
 
     const apiKey = process.env.GEMINI_API_KEY
-    const { course, count } = req.body
+   const { course, topics, count } = req.body
 
-    const prompt = `Generate ${count} multiple choice statistics questions about ${course}.
-    Return ONLY a JSON array, no extra text, no markdown, in this format:
-    [{"question": "...", "options": ["A. option text", "B. option text", "C. option text", "D. option text"], "answer": "A. option text"}]`
+        const prompt = `Generate ${count} multiple choice questions for the course ${course},
+        covering these topics: ${topics.join(', ')}.
+        Distribute the questions as evenly as possible across all listed topics.
+        Vary the phrasing, difficulty, and question style so no two questions feel repetitive.
+        Return ONLY a JSON array, no extra text, no markdown, in this format:
+        [{"question": "...", "options": ["A. option text", "B. option text", "C. option text", "D. option text"], "answer": "A. option text"}]`
+
+    
 
     const geminiRes = await fetch(
         `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
