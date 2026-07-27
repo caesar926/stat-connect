@@ -21,26 +21,25 @@ let userAnswers = []
  generateBtn.addEventListener('click', async () => {
   const selectedCourse = courseSelect.value
   const selectedNum = countSelect.value
-  generateBtn.textContent ='generating...'
+  const course = window.courseData[selectedCourse]
+  const topicNames = course.topics.map(t => t.name)
 
-  const ask = await fetch( `/api/generate-quiz`,
-      {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ course:selectedCourse, count: selectedNum })
-      }
-  )
+  generateBtn.textContent = 'generating...'
 
- const data = await ask.json()
- questions = data.questions
+  const ask = await fetch(`/api/generate-quiz`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ course: selectedCourse, topics: topicNames, count: selectedNum })
+  })
 
- quizSetup.style.display ='none'
-  
- quizActive.style.display = ''
- generateBtn.textContent = 'GENERATE QUESTION'
+  const data = await ask.json()
+  questions = data.questions
+
+  quizSetup.style.display = 'none'
+  quizActive.style.display = ''
+  generateBtn.textContent = 'GENERATE QUESTIONS'
   renderQuestion()
-});
-
+})
 
 function renderQuestion () {
   const currentquest = questions[currentIndex];
