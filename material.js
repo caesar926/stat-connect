@@ -185,3 +185,6 @@ search.addEventListener('input', () => {
     }
   })
 })
+
+
+window.courseData = courseData;
