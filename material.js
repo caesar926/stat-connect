@@ -9,27 +9,32 @@ const courseData = {
     'SDA 221': {
         title: 'Introduction to  R  Programming',
         topics: [
-          {name:'Basic Probability', pdf:null},
-          {name:'Random Variables', pdf:null},
-          {name:'Normal Distrubtion', pdf:null}    
+          {name:'understanding common R conventions', pdf:null},
+          {name:'Data structures and R conventions', pdf:null},
+          {name:'Analysis of variance', pdf:null},
+          {name:'Data visualization in R', pdf:null},
+          {name:'linear regression in R', pdf:null}   
         ]
     },
 
     'COS 221': {
         title: 'Computer programming',
         topics: [
-          {name:'Basic Probability', pdf:null},
-          {name:'Random Variables', pdf:null},
-          {name:'Normal Distrubtion', pdf:null}    
+          {name:'Functions and Modular Programming', pdf:null},
+          {name:'Pointers and Dynamic Memory', pdf:null},
+          {name:'Structures and File Handling', pdf:null},
+          {name:'Debugging and Program Development', pdf:null}    
         ]
     },
 
     'MTH 221' : {
       title:'Introduction to numerical analysis',
       topics:[
-          {name:'Estimation Theory',  pdf:null},
-          {name: 'Hypothesis testing', pdf:null},
-          {name:'Analysis of variance', pdf:null}  
+          {name:'Errors in Numerical Computation',  pdf:null},
+          {name: 'Solutions of Nonlinear Equations', pdf:null},
+          {name:'Interpolation', pdf:null},
+          {name:'Numerical Differentiation and Integration', pdf:null},
+          {name:'Solutions of Linear Systems', pdf:null} 
       ]
     },
 
@@ -45,9 +50,10 @@ const courseData = {
     'NS-STA 221' :{
       title: 'Introduction to economic modelling and econometrics',
       topics:[
-        {name:'Parts of Speech',  pdf:null},
-          {name: 'sentence Structure', pdf:null},
-          {name:'comprehension', pdf:null}  
+        {name:'Tools for data query',  pdf:null},
+          {name: 'pratical application of business analytics', pdf:null},
+           {name:'Equal probability creterion',  pdf:null},
+          {name:'big data metrics and classification', pdf:null}  
       ]
     },
 
